@@ -8,7 +8,7 @@ function preload() {
 // preload() runs once, it may make you wait
 //  img = loadImage('cuco.jpg');  // cat.jpg needs to be next to this .js file
 // you can link to an image on your github account
-//img = loadImage('help.png');
+img = loadImage('https://jobaniprojects.github.io/diyps/help.png');
 }
 
 function setup() {

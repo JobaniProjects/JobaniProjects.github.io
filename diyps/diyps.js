@@ -90,7 +90,7 @@ function newkeyChoice(toolChoice) { //toolchoice is the key that was pressed
     fill(random(255), random(255), random(255), random(255));
     rect(mouseX, mouseY, 200, 150);
   } else if (toolChoice == 'g' || toolChoice == 'G') { // g places the image we pre-loaded
-    image(img, mouseX, mouseY);
+    image(img, mouseX, mouseY, 100, 70);    //253,87
   }
   else if (toolChoice == 'c' || toolChoice == 'C') //creates circles
   {

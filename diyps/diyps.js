@@ -107,7 +107,7 @@ function newkeyChoice(toolChoice) { //toolchoice is the key that was pressed
     strokeWeight(1);
   }
 
-  else if(toolChoice == 'b' || toolChoice == 'B')
+  else if(toolChoice == 'b' || toolChoice == 'B') //blue color pencil
   {
     strokeWeight(4);
     stroke(22, 240, 232);

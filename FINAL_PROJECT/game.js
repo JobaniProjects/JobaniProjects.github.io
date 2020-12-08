@@ -30,7 +30,7 @@ function setup() {
     //create a sprite and add the 3 animations
     var rock = createSprite(random(-width, SCENE_W+width), random(-height, SCENE_H+height));
     //cycles through rocks 0 1 2
-    rock.addAnimation('normal', 'images/rock01'+i%3+'.png');
+    rock.addAnimation('normal', 'images/rock01.png');
     bg.add(rock);
   }
 

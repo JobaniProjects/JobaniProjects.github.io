@@ -6,6 +6,10 @@
 var ghost;
 var bg;
 var frame;
+
+//BACKGROUND image
+var background;
+
 //the scene is twice the size of the canvas
 var SCENE_W = 1600;
 var SCENE_H = 800;
@@ -13,6 +17,9 @@ var SCENE_H = 800;
 
 function setup() {
   createCanvas(800, 400);
+
+  //LOADING image background
+  background = loadImage('images/backgroundForest.png');
 
   //create a sprite and add the 3 animations
   ghost = createSprite(400, 200, 50, 100);
@@ -39,6 +46,9 @@ function setup() {
 
 function draw() {
   background(255, 255, 255);
+ 
+  //BACKGROUND image
+  image(background,0,0);
 
   //mouse trailer, the speed is inversely proportional to the mouse distance
   ghost.velocity.x = (camera.mouseX-ghost.position.x)/20;

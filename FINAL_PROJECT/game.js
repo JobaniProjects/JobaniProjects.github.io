@@ -17,7 +17,7 @@ function setup() {
   //create a sprite and add the 3 animations
   ghost = createSprite(400, 200, 50, 100);
 
-  var myAnimation = ghost.addAnimation('floating', 'images/UndertaleCharacter01.png', 'images/UndertaleCharacter02.png');
+  var myAnimation = ghost.addAnimation('floating', 'images/mainCharacterStanding01.png', 'images/mainCharacterStanding02.png');
   myAnimation.offY = 18;
 
   ghost.addAnimation('moving', 'images/Sans01.png', 'images/Sans02.png');

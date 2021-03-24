@@ -1,0 +1,155 @@
+//Exercise 4
+int counter = 16;
+int steamCloud = 4;
+int ySteam = 40;
+
+int thirtyIncrement = 0;
+
+float ran = random(0,255);
+float ran2 = random(0,255);
+
+float[] xPos = new float[counter];
+float[] yPos = new float[counter];
+float[] speedX = new float[counter];
+float[] speedY = new float[counter];
+
+float[] sizeW = new float[counter];
+float[] sizeH = new float[counter];
+
+color[] colors = new color[counter];
+
+//Steam
+float[] alpha = new float[steamCloud];
+float[] xPosSteam = new float[steamCloud];
+float[] yPosSteam = new float[steamCloud];
+
+float[] steamSpeedX = new float[steamCloud];
+float[] steamW = new float[steamCloud];
+float[] steamH = new float[steamCloud];
+
+PImage[] steamImages = new PImage[steamCloud];
+
+PImage bathtub;
+PImage steam;
+
+void setup()
+{
+  size(600,600);
+  
+  bathtub = loadImage("vintageBathtub.png");
+  steam = loadImage("cloud01.png");
+  
+  for(int i = 0; i<xPos.length;i++)
+  {
+   // xPos[i] = width/2;
+   // yPos[i] = height/2;
+    xPos[i] = random(100,500);
+    yPos[i] = random(100,500);
+   
+   
+    speedX[i] = random(-2,2);
+    speedY[i] = random(-2,2);
+    sizeW[i] = random(40,40);
+    sizeH[i] = random(40,40);
+    colors[i] = color(random(255),random(255),random(255), 50);
+    
+  }
+  
+  for(int i = 0; i < alpha.length;i++)
+  {
+    alpha[i] = random(90,100);
+    xPosSteam[i] = random(40,396); 
+    //yPosSteam[i] = random(40,100);
+    yPosSteam[i] = ySteam + thirtyIncrement;
+    steamSpeedX[i] = random(1,1.001);
+    steamW[i] = random(160,190);
+    steamH[i] = random(40,60);    
+    steamImages[i] = steam;
+    
+    thirtyIncrement = thirtyIncrement + 30;
+  }
+}
+
+void draw()
+{
+  background(230,140,102);
+  fill(255, 236, 92);
+  rect(40,40,width-80,height-80);
+  
+  
+  ellipse(width/2,(height/2)+92,120,10);
+  steam();
+  
+  
+  image(bathtub,(width/2) - 80,height/2,160,100);    //---------------------------
+  
+  //float ran = random(0,256);
+  
+  for(int i = 0; i < xPos.length;i++)
+  {
+    xPos[i] += speedX[i];
+    yPos[i] += speedY[i];
+    
+    //fill(ran,ran2,ran);
+    fill(colors[i]);
+    ellipse(xPos[i],yPos[i],sizeW[i],sizeH[i]);
+    
+    if(xPos[i]< 40 + sizeW[i]/2 || xPos[i]>(width-40)-sizeW[i]/2 )
+    {
+      speedX[i] = -speedX[i];
+      println("SpeedX = " + speedX[i]);
+    }
+    if(yPos[i]<40+sizeW[i]/2 || yPos[i] > (height-40)-sizeW[i]/2)
+    {
+      speedY[i] = -speedY[i];
+    }
+  }
+  
+  if(keyPressed)
+  {
+    screenshot();                 
+  }
+  
+  /**
+  if (frameCount <  450 ) 
+  {
+   saveFrame("video/videoVersion2/videoScreenshot_####.png");
+  }
+  **/
+}
+
+
+
+void steam()
+{
+  for(int j = 0; j < steamSpeedX.length;j++)
+  {
+    
+    xPosSteam[j] += steamSpeedX[j];
+    tint(255, 180);  //126
+    image(steamImages[j],xPosSteam[j], yPosSteam[j], steamW[j],steamH[j]);
+    
+    
+    println("STEAM["+j + "] WIDTH: " + steamW[j]);
+    println("STEAM["+j + "] HEIGHT: " + steamH[j]);
+    noTint();
+    if(xPosSteam[j]< -40 + steamW[j]/2 || xPosSteam[j]>(width-120)-steamW[j]/2 )
+    {
+      steamSpeedX[j] = -steamSpeedX[j];
+      //println("SpeedX = " + speedX[i]);
+    }
+
+  }
+}
+
+
+void screenshot()
+{
+  if(key == 's' || key=='S')
+  {
+    saveFrame("screenshots/screenshot####.png");
+    //delay(500);
+    println("s");
+  }
+  
+}

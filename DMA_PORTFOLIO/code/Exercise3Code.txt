@@ -1,0 +1,218 @@
+//Exercise 3 Custom functions
+int counter = 0;
+int r = 45;
+int b = 0;
+int xCounter = 0;
+PImage banana;
+PImage backgroundBanana;
+float rotateD = -45.0;
+boolean s = true;
+
+void setup()
+{
+  size(600,600);
+ // background(239,244,0);
+  banana = loadImage("images/banana.png");
+  backgroundBanana = loadImage("images/backgroundBanana.png");
+  frameRate(10);
+}
+
+void draw()
+{
+  background(255, 237, 237);  //239,244,0
+ // ellipse(30,b,40,40);
+  //backgroundBanana(0,300);
+  
+  
+  bananaBunch();
+  monkey1();
+  monkey2();
+  
+  if(keyPressed)
+  {
+    screenshot();                 
+  }
+  
+  /**
+  if (frameCount <  220 ) 
+  {
+   saveFrame("video/videoScreenshot_####.png");
+  }
+  **/
+}
+
+
+//---------------------------------
+void monkey1()
+{
+  shadow(220,430);
+  body(200,358);
+  head(220,330,70,84);  //left head
+  ears(180,330,36,36);
+  eyes(13,378,12,24, true);
+  mouth(210,354,10,10);
+  banana();
+}
+
+void monkey2()
+{
+  shadow(334,430);
+  body(318,358);
+  head(360,330,70,84);  //right head
+  ears(320,330,36,36);
+  eyes(0,0, 12,24, false);
+  mouth(370,354,10,10);
+  //eyes();
+}
+
+void bananaBunch()
+{
+  //column 1 
+  backgroundBanana(-44,-12,20,-10);
+  backgroundBanana(-44,-12,20,100);
+  backgroundBanana(-44,-12,20,200);
+  backgroundBanana(-44,-12,20,300);
+  backgroundBanana(-44,-12,20,400);
+  //2
+  backgroundBanana(-44,-12, 110,-30);
+  backgroundBanana(-44,-12, 110, 90);
+  backgroundBanana(-44,-12, 110, 200);
+  backgroundBanana(-44,-12, 110, 300);
+  backgroundBanana(-44,-12, 110, 400);
+  //3
+  backgroundBanana(-44,-12, 190,-30);
+  backgroundBanana(-44,-12, 190,90);
+  backgroundBanana(-44,-12, 190,200);
+  backgroundBanana(-44,-12, 190,300);
+  backgroundBanana(-44,-12, 190,400);
+  //4
+  backgroundBanana(-44,-12,280,-30);
+  backgroundBanana(-44,-12,280,90);
+  backgroundBanana(-44,-12,280,200);
+  backgroundBanana(-44,-12,280,300);
+  backgroundBanana(-44,-12,280,400);
+  //5
+  backgroundBanana(-44,-12,360,-30);
+  backgroundBanana(-44,-12,360,90);
+  backgroundBanana(-44,-12,360,200);
+  backgroundBanana(-44,-12,360,300);
+  backgroundBanana(-44,-12,360,400);
+  //6
+  backgroundBanana(-44,-12, 450,-30);
+  backgroundBanana(-44,-12, 450,90);
+  backgroundBanana(-44,-12, 450,200);
+  backgroundBanana(-44,-12, 450,300);
+  backgroundBanana(-44,-12, 450,400);
+  //7
+  backgroundBanana(-44,-12, 530,-30);
+  backgroundBanana(-44,-12, 530,90);
+  backgroundBanana(-44,-12, 530,200);
+  backgroundBanana(-44,-12, 530,300);
+  backgroundBanana(-44,-12, 530,400);
+  //8
+  backgroundBanana(-44,-12, 610,-30);
+  backgroundBanana(-44,-12, 610,80);
+  backgroundBanana(-44,-12, 610,200);
+  backgroundBanana(-44,-12, 610,300);
+  backgroundBanana(-44,-12, 610,400);
+}
+
+void backgroundBanana(int xPos, int yPos, int xMove, int yMove)
+{
+  pushMatrix();
+  translate(xMove,xCounter + yMove);
+  rotate(radians(r));
+  tint(255, 200);
+  image(backgroundBanana,xPos,yPos,62,40);
+  noTint();
+  popMatrix();
+  r +=1;
+  xCounter+=1;
+  if(xCounter>height+40)
+  {
+    xCounter = -350 - yMove;
+  }
+}
+
+void banana()
+{
+  pushMatrix();
+  translate(width/2, height/2);
+  rotate(radians(rotateD/.16));
+  scale(.50);
+  image(banana,width/2,height/2, 90,90);
+  popMatrix();
+  rotateD += 3;
+}
+
+void shadow(int xPos, int yPos)
+{
+  ellipse(xPos,yPos,38,12);
+}
+
+void head(int x, int y, int headWidth, int headHeight)
+{
+  fill(173, 140, 62);  //brown
+  strokeWeight(2);
+  ellipse(x,y,headWidth,headHeight);
+}
+
+void ears(int xPos, int yPos, int earW, int earH)
+{
+  fill(230,198,110);  //light brown
+  ellipse(xPos, yPos, earW, earH);
+  ellipse(xPos+80,yPos,earW,earH);
+}
+
+void body(int xPos, int yPos)
+{
+  fill(173,140,62);
+  strokeWeight(2);
+  rect(xPos,yPos,40,56, 8);
+}
+
+void eyes(int xPos, int yPos, int eyeW,int eyeH, boolean condition)
+{
+  fill(random(255),random(255),random(255));
+  //fill(0);
+  if(condition == true)
+  {
+    pushMatrix();
+    translate(0,0);
+    rotate(radians(-30));
+    ellipse(xPos, yPos, eyeW,eyeH);
+      pushMatrix();
+      rotate(radians(60));
+      ellipse(xPos +342,yPos-212,eyeW,eyeH);
+      popMatrix();
+    popMatrix();
+  }
+  else if(condition == false)
+  {
+    pushMatrix();
+    translate(width/2 + 50,height/2 +10);
+    ellipse(xPos,yPos,eyeW,eyeH);
+    popMatrix();
+    pushMatrix();
+    translate(width/2+80, height/2 +10);
+    ellipse(xPos,yPos,eyeW,eyeH);
+    popMatrix();
+  }
+}
+
+void mouth(int xPos, int Ypos, int mouthW, int mouthH)
+{
+  fill(0);
+  ellipse(xPos,Ypos,mouthW,mouthH);
+}
+
+void screenshot()
+{
+  if(key == 's' || key=='S')
+  {
+    saveFrame("screenshots/screenshot####.png");
+    //delay(500);
+    println("s");
+  }
+  
+}

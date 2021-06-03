@@ -1,0 +1,110 @@
+
+float rand = 0;
+float rand2 = 0;
+float rand3 = 0;
+
+float num = 0;
+float inc = TWO_PI/10.0;
+
+String user = "David";
+
+void setup()
+{ 
+  size(300,300);
+  //background(0, 50, 100); 
+  noStroke();
+  frameRate(6);
+}
+
+void draw()
+{
+  background(0, 50, 100);
+  if(keyPressed)
+  {
+    screenshot();
+  }
+  
+  rand = random(200,255);
+  rand2 = random(200,255);
+  rand3 = random(14,200);
+  println(" The inc = " + inc);
+  
+
+  
+  for(int x = 40; x < 260; x+=20)
+  {
+    for(int y=40; y <260; y+=20)
+    {
+      if(y==40 || y==80 || y==120 || y==160 ||y==200 || y==240)
+      {
+         fill(rand2,rand,rand2);
+         rect( x+5, y+5, 10, 10 );
+      }
+      else if(y==60 || y==100 || y==140 || y==180 || y==220 || y==260)
+      {
+        fill(rand,rand2,rand3);
+        ellipse( x+20, y+5, random(11), random(4,11) );
+        
+        noFill();
+        stroke(rand2,rand,rand2);
+        rect(x+5, y+5, 10, 10);
+        
+  //      noFill();
+    //    stroke(rand2,rand,rand2);
+     //   ellipse(x+20, y+20, 10, 10);
+      }
+      
+      println("Username " + "-"+ user+ "- " + "has used coordinates " + "x= " + x + " y="+y );
+    }
+  }
+
+  smooth();
+  for (int i=76; i<228; i+=4) 
+  {
+    stroke(rand,rand,rand2);
+    line(i, 150, i, 150+sin(num)*40.0);
+    println(" The angle = " + num + " The sin = " + sin(num));
+    num = num + inc;
+  }
+  noFill();
+  stroke(rand3,rand2,rand);
+
+  square(35,35,235);
+  
+  strokeWeight(2);
+  stroke(random(107,242),random(107,242),random(107,242));
+  square(30,30,248);
+  
+  strokeWeight(3);
+  stroke(random(5,255),random(5,255),random(5,255));
+  square(20,20,268);
+  
+  strokeWeight(random(2,5));
+  stroke(random(5,255),random(5,255),random(5,255));
+  //
+  square(10,10,288);
+  strokeWeight(1);
+  
+   if (frameCount <  200 ) 
+   {
+    
+    saveFrame("video/rotater_####.png");
+    
+  } 
+  else 
+  {
+    
+    exit();
+  }
+}
+
+void screenshot()
+{
+  if(key == 's' || key=='S')
+  {
+    saveFrame("screenshots/x_xxx_####.png");
+    delay(500);
+    println("s");
+  }
+  
+}

@@ -1,0 +1,91 @@
+
+
+class dzStars
+{
+  float widthStar;
+  float heightStar;
+  float starGlimmer = 0;   //changing the color from white to black to give it a shimmer look
+  float blueStarOpp = 100;
+  float starX;
+  float starY;
+  float num = random(2,5);
+  float num2 = 8;
+  float num3 = 10;
+  float num4 = random(1,3);
+  float shootingStarColor = 255;
+  float shootingStarX = 300;
+  int shootingStarOpacity = 100;
+  
+  
+  dzStars(float x, float y, float w, float h)
+  {
+    starX = x;
+    starY = y;
+    widthStar = w;
+    heightStar = h;
+  }
+  
+  dzStars()
+  {
+    
+  }
+
+  //Creates white stars
+  void dzCreateStars()
+  {
+    pushMatrix();
+      fill(starGlimmer);
+      rect(starX, starY, widthStar,heightStar);
+    popMatrix();
+  }
+  
+  //Updates white stars to glimmer
+  void dzUpdate()
+  {
+    if(starGlimmer < 0 || starGlimmer > 254)
+    {
+      num = -num;
+    }
+    starGlimmer+=num;
+  }
+  
+  //Updates white shooting stars
+  void dzShootingStarUpdate()
+  {
+    if(shootingStarX < 540)
+    {
+      
+      shootingStarX+=num2;
+    }
+    if(shootingStarX > 410)
+    {
+        shootingStarColor-=num3; 
+    }
+  }
+  
+  //Updates all blue stars to glimmer
+  void dzBlueStarsUpdate()     //     blue star
+  {
+    if(blueStarOpp < 0 || blueStarOpp > 100)
+    {
+      num4 = -num4;
+    }
+    blueStarOpp+=num4;
+  }
+  
+  //Creates shooting star
+  void dzShootingStar()
+  {
+    fill(shootingStarColor,shootingStarColor,shootingStarColor); //,shootingStarOpacity
+    rect(shootingStarX,200, 6,8);
+  }
+  
+  //Creates blue stars
+  void dzCreateBlueStars()     
+  {
+    pushMatrix();
+      fill(33,126,166, blueStarOpp);
+      rect(starX, starY, widthStar,heightStar);
+    popMatrix();
+  }
+}

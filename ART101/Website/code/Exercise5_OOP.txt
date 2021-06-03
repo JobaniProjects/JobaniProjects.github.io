@@ -1,0 +1,293 @@
+//Exercise 5
+//Created by: David Zenteno
+
+//import processing.pdf.*;                  //               ----
+
+//import com.hamoid.*;             //   -   -   -   -
+
+
+
+SmileyFace[] smiley;
+int smileyCount = 20;
+
+int frogPosXMiddle = 300;
+int frogPosYMiddle = 350;
+
+int counter1 = 0;
+int num1 = 2;
+color backg ;
+
+int movementHX = 0;
+int counterMX = 1;
+
+float movementHY = 0;
+float counterMY = .2;
+
+
+PImage headphones;
+
+void setup()
+{
+  size(700,700);
+  headphones = loadImage("images/headphones02.png");
+  
+  colorMode(HSB);
+  
+  smiley = new SmileyFace[smileyCount];
+  for(int i = 0; i < smiley.length;i++)
+  {
+    //x, y , width, height, x speed, and y speed of smiley
+    smiley[i] = new SmileyFace(random(0,700),random(0,700), 22,22, random(-1,2), 4);
+    //20,20,4,4
+  }
+  
+//  beginRecord(PDF, "videoScreenshots/everything.pdf");     //png ---
+  
+}
+
+void draw()
+{
+  backgroundChange();
+  println("Counter1: " + counter1);
+  
+  println("Number of smiley faces in array: " + smiley.length);
+  for(int i = 0; i< smiley.length;i++)
+  {
+    smiley[i].createSmiley();
+    smiley[i].update();
+    smiley[i].move();
+  }
+  
+  //headphones
+  pushMatrix();
+    translate(movementHX,movementHY);
+    pushMatrix();
+      scale(.244);
+      translate(100,100);
+      image(headphones, 1076,828);
+    popMatrix();
+  popMatrix();
+  
+  //Frog Man
+  pushMatrix();
+    scale(.82);
+    translate(74,60);
+    frogManVibing();
+  popMatrix();
+  
+  if(keyPressed)
+  {
+    screenshot();
+  }
+  
+  /**
+  if(frameCount < 450)
+  {
+    saveFrame("videoScreenshots/videoScreenshot_####.png");
+  }
+  **/
+  
+}
+
+
+//Different colored background constantly changing
+void backgroundChange()
+{
+  
+  //backg = color(0,counter1,counter1, 100);
+  backg = color(counter1, counter1,counter1);
+  
+  
+  if(mousePressed && mouseButton ==LEFT)
+  {
+    backg = color(counter1, counter1,counter1, 30);
+  }
+  if(mousePressed && mouseButton == RIGHT)
+  {
+    for(int i = 0; i < smiley.length; i++)
+    {
+    smiley[i].newDirection();
+    }
+  }
+  
+  fill(backg);
+  rect(0,0,700,700);
+  
+  if(counter1   < 0 || counter1 > 254)
+    {
+      num1 = -num1;
+    }
+    counter1 +=num1;
+    
+    backg = color(counter1,0,0);
+   
+}
+
+
+//Slippi
+void frogManVibing()
+{
+  pushMatrix();
+    colorMode(RGB);
+    noStroke();
+  
+      fill(78, 252, 3);    //frog green 
+    
+    //neck   
+    noStroke();
+    rect(338,362,20,32);
+    
+    //headMovement
+    pushMatrix();
+    
+      //head X movement
+      if(movementHX < -10 || movementHX > 9)
+      {
+        counterMX = -counterMX;
+      }
+      movementHX +=counterMX;
+      
+      //head Y movement
+      if(movementHY < -1 || movementHY > 6)
+      {
+        counterMY = - counterMY;
+      }
+      movementHY+=counterMY;
+      
+      translate(movementHX, movementHY);
+      println("Movement of head X coordinate: " + movementHX );
+      
+    
+    
+      //face rectangle
+      rect(frogPosXMiddle,frogPosXMiddle,100,50);
+  
+      //bottom jaw
+      ellipse(350,350,120,30);
+  
+      //eye shape left
+      ellipse(308,290,36,36);
+  
+      //eye right
+      ellipse(390,290,36,36);
+      stroke(1);
+  
+      //mouth
+      fill(0);
+      arc(348,347,84,24,0,PI);
+  
+        //eye line left
+        pushMatrix();
+          noFill();
+          scale(.3);
+          translate(920,912);
+          strokeWeight(4);
+          curve(50,50,50,50, 100,25,150,50);
+          curve(50,50,100,25,150,50,200,25 ); 
+          strokeWeight(1);
+        popMatrix();
+    
+      //eye line right
+        pushMatrix();
+          noFill();
+          scale(.3);
+          translate(1200,912);
+          strokeWeight(4);
+          curve(50,50,50,50, 100,25,150,50);
+          curve(50,50,100,25,150,50,200,25 ); 
+          strokeWeight(1);
+        popMatrix();
+    
+    popMatrix();
+    //end of head movement
+    
+    
+    noStroke();
+    
+    //body middle rectangle shirt
+    fill(3, 69, 252);
+    rect(324,380,50,80);
+    
+    
+    //left arm
+    fill(78, 252, 3);
+    rect(310,410,10,60);
+    
+    
+      //left arm shirt
+      pushMatrix();
+        fill(3, 69, 252);
+        rotate(radians(20));
+        translate(-23,336);
+        rect(450,-90,20,36, 10 ,10,0,0);    //300, 380
+      popMatrix();
+    
+    
+    //right arm
+    fill(78, 252, 3);
+    rect(378,410,10,60);
+    
+    
+    //right arm shirt
+      pushMatrix();
+        fill(3, 69, 252);
+        rotate(radians(-20));
+        translate(207,485.4);
+        rect(0,0,22,36, 10 ,10,0,0);    //   300, 380
+      popMatrix();
+    
+    //hand left
+    fill(78, 252, 3);
+    ellipse(315,478,19,19);
+    
+    //hand right
+    fill(78, 252, 3);
+    ellipse(383,478,19,19);
+    
+    //shorts rect
+    fill(173, 134, 24);
+    rect(325,460,48,10);
+    
+    //shorts left 
+    rect(325,460,16,30);
+    
+    //shorts right
+    rect(357,460,16,30);
+    
+    //left leg
+    fill(78,252,3);
+    rect(328,490,8,44);
+    
+    //right leg
+    rect(362,490,8,44);
+    
+    //shoe left
+    fill(0);
+    rect(325,534,12,10);
+    rect(323,538,16,10);
+    
+    //shoe right
+    rect(360,534,12,10);
+    rect(358,538,16,10);
+    
+    stroke(1);
+  
+    colorMode(HSB);
+  popMatrix();
+}
+
+void screenshot()
+{
+  if(key == 's' || key == 'S')
+  {
+  
+  saveFrame("screenShots/screenshot####.png");
+  }
+/**  if(key == 'r' || key == 'R')
+  {
+    endRecord();
+    exit();
+  }
+  
+  **/
+}

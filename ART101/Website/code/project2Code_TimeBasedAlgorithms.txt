@@ -1,0 +1,296 @@
+//David Zenteno
+
+//dzStars class
+dzStars[] stars;    
+dzStars[] blueStars;
+dzStars[] shootingStars;
+
+//Number of stars on screen
+int starsCount = 75;   //35 
+int blueStarsCount = 64;   //24
+int shootingStarsCount = 1;
+
+//fibonacci related nums
+int   nbr_circles = 100;
+float angle_incr = 2*PI / nbr_circles;
+
+//Perlin Noise related nums
+float yoff = 0.0;
+
+//Images of grass and the couple sitting
+PImage coupleSitting;
+PImage grass;
+
+/********************************************************SETUP**/
+void setup()
+{
+  size(960,540);
+  coupleSitting = loadImage("images/coupleBench.png");
+  grass = loadImage("images/grass.png");
+  
+  //Stars
+  stars = new dzStars[starsCount];
+  //Shooting star
+  shootingStars = new dzStars[shootingStarsCount];
+  //Blue Stars
+  blueStars = new dzStars[blueStarsCount];
+  
+  //Preload all the white stars
+  for(int i = 0; i<stars.length;i++)
+  {
+    stars[i] = new dzStars(random(0,width),random(0,420),5,7);
+  }
+  
+  //Preload blue stars
+  for(int i = 0; i < blueStars.length;i++)
+  {
+    blueStars[i] = new dzStars(random(0,width), random(1,388),4,6);
+  }
+  
+  //Preload shooting stars
+  for(int i = 0; i<shootingStars.length;i++)
+  {
+    shootingStars[i] = new dzStars();
+  }
+}
+
+/***********************************************************DRAW**/
+void draw()
+{
+  //changes the background in steps; from orange to black
+  sky();
+  
+  //Loop for stars to appear and glimmer on screen
+  whiteStars();
+  
+  //Loop for blue stars to appear and glimmer also
+  blueStars();
+  
+  //Draw shooting star passing by
+  shootingStar();
+  
+  //Draws fibonacci stars that loop
+  fibonacciStars();
+  
+  //Water wave using the perlin noise
+  pushMatrix();
+    translate(0,240);
+    perlinNoise();
+  popMatrix();
+  
+  //Grass images
+  grass();
+  
+  //Couple sitting image
+  coupleSitting();
+  
+  //recordVideo();
+    
+}
+
+
+/*************************************************************/
+//Algorithm for the fibonacci sunflower sequence
+void fibonacciFlower()
+{
+    fill(33, 126, 166);   //color of 
+    float elapsedSeconds = millis()* 0.001;
+    float angle_incr = radians(30 + frameCount/12.0);   //angle of rotation                 
+    //float cx = width/2;
+    float cx = 300;           //x position
+    //float cy = height/2;
+    float cy = 300;            //y position
+    float outer_rad = width*.45;
+    float sm_diameter = 4;        //thickness of circles
+    
+    for (int i = 1; i <= nbr_circles; ++i) 
+    {
+      float ratio = i/(float)nbr_circles;
+      float spiral_rad = ratio * outer_rad;
+      float angle = i*angle_incr;
+      float x = cx + cos(angle) * spiral_rad;
+      float y = cy + sin(angle) * spiral_rad;
+    
+      // draw tiny circle at x,y
+      pushMatrix();
+        scale(.4);
+        ellipse(x, y, sm_diameter, sm_diameter);
+      popMatrix();
+    }
+
+}
+
+/**********************************************************/
+void grass()
+{
+  pushMatrix();
+    translate(0,452);
+    scale(.3);
+    image(grass, 0,0);
+  popMatrix();
+  
+  pushMatrix();
+    translate(220,452);
+    scale(.3);
+    image(grass, 0,0);
+  popMatrix();
+  
+  pushMatrix();
+    translate(380,452);
+    scale(.3);
+    image(grass, 0,0);
+  popMatrix();
+  
+  pushMatrix();
+    translate(520,452);
+    scale(.3);
+    image(grass, 0,0);
+  popMatrix();
+  
+  pushMatrix();
+    translate(740,452);
+    scale(.3);
+    image(grass, 0,0);
+  popMatrix();
+}
+
+/*************************************************************/
+void sky()
+{
+  //changes the background from orange to black
+   if(millis() < 3000)
+   {
+     background(242, 203, 46);   //part 1
+   }
+   else if(millis() < 6000)
+   {
+     background(220,170,46);    //part 2
+   }
+   else if(millis() < 9000)  
+   {
+     background(200,160,40);    //part 3
+   }
+   else if(millis() <12000)
+   {
+     background(163,130,31);    //part 4
+   }
+   else if(millis() < 15000)
+   {
+     background(105, 87, 15);    //part 5
+   }
+   else if(millis() < 90000)
+   {
+     background(0,0,0);       //part 6
+   }
+}
+
+/*********************************************************/
+void whiteStars()
+{
+  for(int i = 0; i <stars.length;i++)
+  {
+    if(millis() > 15000)
+    {
+      stars[i].dzCreateStars();
+      stars[i].dzUpdate();
+    }
+  }
+}
+
+/*******************************************************/
+void blueStars()
+{
+  for(int i = 0;i <blueStars.length;i++)
+  {
+    if(millis() > 15000)
+    {
+      pushMatrix();
+        fill(33,126,166);
+        blueStars[i].dzCreateBlueStars();
+        blueStars[i].dzBlueStarsUpdate();
+      popMatrix();
+    }
+  }
+}
+
+/*******************************************************/
+void shootingStar()
+{
+  if(millis() > 20000)
+  {
+    shootingStars[0].dzShootingStar();
+    shootingStars[0].dzShootingStarUpdate();
+  }
+}
+
+/******************************************************/
+void fibonacciStars()
+{
+  pushMatrix();
+    if(millis() > 15000)
+    {
+      translate(30,0);
+      fibonacciFlower();
+      
+      pushMatrix();
+        translate(600,0);
+        fibonacciFlower();
+      popMatrix();
+      
+      pushMatrix();
+        translate(350, 150);
+        scale(.6);
+        fibonacciFlower();
+      popMatrix();
+    }
+  popMatrix();
+}
+
+/****************************************************/
+void coupleSitting()
+{
+  pushMatrix();
+    scale(.6);
+    translate(320,500);
+    image(coupleSitting,300,100);
+  popMatrix();
+}
+
+/**********************************************************/
+
+void perlinNoise()
+{
+  fill(12, 30, 84);
+  // We are going to draw a polygon out of the wave points
+  beginShape(); 
+  
+  //float xoff = 0;       // Option #1: 2D Noise
+   float xoff = yoff; // Option #2: 1D Noise
+  
+  // Iterate over horizontal pixels
+  for (float x = 0; x <= width; x += 10) {
+    // Calculate a y value according to noise, map to 
+    float y = map(noise(xoff, yoff), 0, 1, 200,300); // Option #1: 2D Noise
+    // float y = map(noise(xoff), 0, 1, 200,300);    // Option #2: 1D Noise
+    
+    // Set the vertex
+    vertex(x, y); 
+    // Increment x dimension for noise
+    xoff += 0.04;
+  }
+  // increment y dimension for noise
+  yoff += 0.002;
+  vertex(width, height);
+  vertex(0, height);
+  endShape(CLOSE);
+
+}
+
+//Records Video
+void recordVideo()
+{
+  if(frameCount < 590)
+  {
+    saveFrame("videoScreenshots_RE_02/videoScreenshot_####.png");
+  }
+}

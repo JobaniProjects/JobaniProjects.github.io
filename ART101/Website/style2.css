@@ -1,0 +1,37 @@
+.yellow-text-color
+{
+    color: #f5e942;
+
+}
+
+.purple-text-color
+{
+    color:#7100e3;
+
+}
+
+.black-text-color
+{
+
+    color:black;
+}
+
+.quote-custom
+{
+    background-color: #372b63;
+    color: #33b57d;
+}
+
+.statement-text-2 
+{
+    color: #dfdfdf;
+    background-color: #091035 ;
+    padding: 8px;
+    margin-top: 20px;
+    border: 1px dashed black;
+}
+
+.center
+{
+    text-align: center;
+}

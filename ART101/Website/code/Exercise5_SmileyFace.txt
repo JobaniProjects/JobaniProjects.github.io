@@ -1,0 +1,128 @@
+
+
+class SmileyFace
+{
+  float counter = 0;
+  
+  
+  
+  float num = random(4,8);
+  
+  float smileyW;
+  float smileyH;
+  float xPos;
+  float yPos;
+  float xSpeed;
+  float ySpeed;
+  color colorChange;
+  
+  SmileyFace(float x, float y, float w, float h, float speedX, float speedY)
+  {
+    smileyW = w;
+    smileyH = h;
+    xPos = x;
+    yPos = y;
+    xSpeed = speedX;
+    ySpeed = speedY;
+  }
+  
+  void createSmiley()
+  {
+    pushMatrix();
+    colorChange = color(counter,255,255);
+    
+    fill(colorChange);
+    //face shape
+    ellipse(xPos, yPos,smileyW,smileyH);
+    
+    //smile
+    fill(0);
+    arc(xPos,yPos,12,12,0,PI);
+    
+    //left eye
+    ellipse(xPos -5,yPos - 5,5,5);
+    //right eye
+    ellipse(xPos +4,yPos - 5,5,5);
+    
+    popMatrix();
+  }
+  
+  void update()
+  {
+    if(counter < 0 || counter > 254)
+    {
+      num = -num;
+    }
+    counter +=num;
+    colorChange = color(counter,255,255);
+    
+    
+  }
+  
+  void newDirection() {
+    xSpeed = random(-2,2);
+    ySpeed = random(-4,4);
+    if (xSpeed <= 0)
+    {
+      xSpeed = -2;
+      println("X SPEED: " + xSpeed);
+    }
+    else if(xSpeed >=1)
+    {
+      xSpeed = 2;
+      println("X SPEED: " + xSpeed);
+    }
+    
+    if(ySpeed <=0)
+    {
+      ySpeed = -4;
+      println("Y SPEED: " + ySpeed);
+    }
+    else if(ySpeed >=1)
+    {
+      ySpeed = 4;
+      println("Y SPEED: " + ySpeed);
+    }
+   
+    
+    
+  }
+  
+  void move()
+  {
+    xPos += xSpeed;
+    yPos += ySpeed;
+    
+    //bouncing Smiley
+    /**
+    if(xPos > width || xPos<0)
+    {
+      xSpeed=-xSpeed;
+      
+    }
+    if(yPos < 0 || yPos > height)
+    {
+      ySpeed=-ySpeed;
+    }
+    **/
+    
+     if(xPos > width )
+    {
+      //xSpeed=-xSpeed;
+      xPos = 0;
+      
+    }
+    else if(xPos<0)
+    {
+      xPos = width;
+    }
+    if(yPos < 0)
+    {
+      yPos = height;
+    }
+    else if(yPos > height)
+    {
+      yPos = 0;
+    }
+  }
+}

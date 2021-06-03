@@ -1,0 +1,48 @@
+{
+  "toons": [
+
+{
+  "name":"Babbles",
+  "r": 59,
+  "g": 0,
+  "b": 148,
+  "hat": 70,
+  "head": 60,
+  "mouth": 8,
+  "cigar": 12,
+  "eyes": 9,
+  "torso": 11,
+  "arms": 60,
+  "legs": 105,
+  "posX":80,
+  "posY":20,
+  "moveX":[4,4,-8,6,-1,4,-10,12],
+  "moveY":[-2,2,-5,6,-3,7,-8,-9],
+  "nextX":0,
+  "nextY":0
+},
+
+{
+  "name":"Cornelius",
+  "r":222,
+  "g":0,
+  "b":0,
+  "hat": 20,
+  "head": 35,
+  "mouth": 20,
+  "cigar": 42,
+  "eyes": 7,
+  "torso": 82,
+  "arms": 50,
+  "legs": 75,
+  "posX":0,
+  "posY":140,
+  "moveX":[2,4,4,2,5,4,2,3],
+  "moveY":[2,-4,4,2,5,4,2,3],
+  "nextX":0,
+  "nextY":0
+}
+
+]
+
+}

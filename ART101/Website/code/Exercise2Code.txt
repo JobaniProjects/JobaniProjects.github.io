@@ -1,0 +1,229 @@
+
+//Exercise 2
+
+PFont font;
+PFont font2;
+PFont font3;
+
+int counter = 0;
+int bCounter = width;
+float eye = 390;
+boolean goUp = true;
+
+PImage sonic;
+
+PImage pinkguy;
+PImage creepysonic;
+PImage angel;
+
+int gSize = 50;
+int value = 0;
+int value2 = 0;
+
+void setup()
+{
+  size(750,750);
+  //smooth();
+  ellipseMode(CENTER);
+  
+  font = createFont("Sitka Banner Italic", 28);
+  font2 = createFont("Monospace 821 Bold Italic BT",22);
+  font3 = createFont("Perpetua Titling MT Bold", 24);
+  textFont(font);
+  //fill(0,255,0);
+  //text("Please watch your step",50,100);
+  sonic = loadImage("SuperSonicFlying.gif");
+  
+  creepysonic = loadImage("creepySonic.png");
+  pinkguy = loadImage("PinkGuy.jpg");
+  angel = loadImage("angel.png");
+}
+
+void draw()
+{
+  background(255,88,0+value2);
+  
+
+  
+  if(!mousePressed)
+  {
+    noTint();
+    image(pinkguy,random(100,110),random(230,240),100,100);
+    image(creepysonic,random(610,620),random(500,510), 100,100);
+  }
+  else
+  {
+    int checkCounter = 0;
+    for(int i = 0; i < height; i+=gSize)
+    {
+      checkCounter++;
+      for(int j = 0; j <width; j+=gSize)
+      {
+        if((checkCounter % 3)==0)
+        {
+          image(creepysonic,i,j,gSize,gSize);
+        }
+        else
+        {
+          tint(255,40);
+          image(pinkguy,i,j,gSize,gSize);
+        }
+        checkCounter++;
+      }
+    }
+  }
+  
+  
+  fill(247, 247, 247);
+  ellipse(400,400, 84,64);
+  
+//iris
+  fill(0,value2,value);
+  ellipse(eye,400,50,50);  
+  
+  fill(0,0,0);
+  ellipse(eye,400,20,20); //400,400
+  
+
+  
+  fill(0,255,0);
+  text("Please watch your step",counter,100);
+  
+  fill(252, 198, 3);
+  text("Grapes",96,counter-1);
+  fill(0,0,255);
+  text("Grapes",100,counter);
+  
+  fill(255, 248, 224);
+  text("Thank You", counter, counter);
+  fill(245, 113, 113);
+  text("Thank You",counter,counter-2);
+  
+  fill(255, 191, 15);
+  text(" ¡Hablamos Español! ¡Hablamos Español! ¡Hablamos Español! ¡Hablamos Español!" , bCounter,680);
+  
+  
+  
+  if(mousePressed && keyPressed==true)
+  {
+    textFont(font2);
+    fill(205, 245, 113);
+    text("Surprise! Surprise! Surprise! Surprise! Surprise! Surprise! Surprise! Surprise! Surprise!",bCounter - 2,200);
+    fill(random(240,246), random(100,114), random(100,195)); //245,113,194
+    text("Surprise! Surprise! Surprise! Surprise! Surprise! Surprise! Surprise! Surprise! Surprise!", bCounter,200);
+    
+    fill(237, 255, 102);  //green
+    text("Hello?", 50,340); 
+    fill(237, 255, 102, 180);  //green
+    text("Hello?", 50,360); 
+    fill(237, 255, 102, 140);  //green
+    text("Hello?", 50,380);
+    fill(237, 255, 102,100);  //green
+    text("Hello?", 50,400);
+    fill(237, 255, 102,60);  //green
+    text("Hello?", 50,420);
+    
+   // text("Surprise!", bCounter + 200,200);
+    textFont(font3);
+    fill(255,255,255);
+    text("Is anybody there?", 325,600);
+    noTint();
+    image(angel,counter,480, 100,100);
+    
+    textFont(font);
+  }
+  
+  counter++;
+  if(counter>width)
+  {
+    counter = -50;
+  }
+  
+  bCounter--;
+  if(bCounter <-1050)
+  {
+    bCounter = width + 50;
+  }
+  
+  for(float i = 0; i < 1000; i+=1)
+  {
+    if(goUp)
+    {
+      eye++;
+    }
+    else
+    {
+      eye--;
+    }
+    
+    if(eye ==390)
+    {
+      goUp=true;
+    }
+    if(eye ==410)
+    {
+      goUp=false;
+    }
+  }
+  
+  eye++;
+  if(eye>410)
+  {
+    eye = 390;
+  }
+  noTint();
+  image(sonic,pmouseX,pmouseY, 40,40);
+  
+    if(keyPressed)
+  {
+    screenshot();                 
+  }
+  
+  if (frameCount <  250 ) 
+  {
+    
+   saveFrame("video/videoScreenshot_####.png");
+    
+  } 
+  else 
+  { 
+    exit();
+  }
+}
+
+void mouseMoved()
+{
+  value = value + 5;
+  if(value > 255)
+  {
+    value = 0;
+  }
+}
+
+void keyPressed()
+{
+  if(key == 'c' || key == 'C')
+  {
+    if(value2 == 0)
+    {
+      delay(10);
+      value2 = 255;
+    }      
+    else
+    {
+      delay(10);
+      value2 = 0;
+    }
+  }
+}
+
+void screenshot()
+{
+  if(key == 's' || key=='S')
+  {
+    saveFrame("screenshots/x_xxx_####.png");
+    delay(500);
+    println("s");
+  }
+  
+}

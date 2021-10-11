@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+
+.welcome-font
+{
+  
+  font-family: 'Cookie', cursive;
+}
+
+.center
+{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 55%;
+}
+
+.center-button
+{
+  display: block;
+  margin-left:auto;
+  margin-right:auto;
+  width: 20%;
+}

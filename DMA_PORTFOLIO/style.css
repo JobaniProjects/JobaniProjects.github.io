@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+
 body
 {
     background: #E68E36;
+
+}
+
+p
+{
+  font-family: 'Didact Gothic', sans-serif;
 
 }
 
@@ -42,10 +50,13 @@ body
 .text-center
 {
     display: block;
+    /*
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    
+    */
+
+    margin-left: 30%;
+    margin-right: 30%;
+
 
     font-size: 1.10em;
 
@@ -82,13 +93,13 @@ body
 
 
 
-.container 
+.container
 {
     position: relative;
     width: 50%;
 }
 
-.overlay 
+.overlay
 {
     position: absolute;
     top: 0;
@@ -102,12 +113,12 @@ body
     background-color:#ffddd6;
 }
 
-.container:hover .overlay 
+.container:hover .overlay
 {
     opacity: 1;
 }
 
-.text 
+.text
 {
     color: white;
     font-size: 20px;

@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+
+
+body
+{
+  background: #c2f7ff;
+}
+p
+{
+  font-family: 'Didact Gothic', sans-serif;
+  display: block;
+  margin-left: 32%;
+  margin-right: 30%;
+}
+
+h1
+{
+  padding: 40px;
+  margin: auto;
+  text-align: center;
+  width: 75%;
+  color:#b3b9ff;
+}
+
+h2
+{
+  padding: 40px;
+  margin: auto;
+  text-align: center;
+  width: 75%;
+  color: #f2a23a;
+}
+
+h3
+{
+  padding: 40px;
+  margin: auto;
+  text-align: center;
+  width: 75%;
+}
+
+.margin-left
+{
+  margin-left: 30%;
+}
+
+.center-container
+{
+  padding: 40px;
+  margin: auto;
+  text-align: center;
+  width: 75%;
+}

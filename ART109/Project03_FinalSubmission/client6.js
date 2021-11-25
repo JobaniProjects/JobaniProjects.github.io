@@ -112,52 +112,6 @@ function init() {
   );
   */
 
-  // Load preanimated model, add material, and add it to the scene
-  const loader3 = new GLTFLoader().load(
-    "./assets/applebird.glb",
-    function(gltf) {
-      gltf.scene.traverse(function(child) {
-        if (child.isMesh) {
-          //child.material = newMaterial;
-        }
-      });
-      // set position and scale
-      mesh3 = gltf.scene;
-      mesh3.position.set(0.5, 0.8, 3);
-      mesh3.rotation.set(7.5, 6.6, -0.1);
-      mesh3.scale.set(1.5, 1.5, 1.5);
-      // Add model to scene
-      scene.add(mesh3);
-    },
-    undefined,
-    function(error) {
-      console.error(error);
-    }
-  );
-
-  // Load preanimated model, add material, and add it to the scene
-  const loader4 = new GLTFLoader().load(
-    "./assets/applebird.glb",
-    function(gltf) {
-      gltf.scene.traverse(function(child) {
-        if (child.isMesh) {
-          //child.material = newMaterial;
-        }
-      });
-      // set position and scale
-      mesh4 = gltf.scene;
-      mesh4.position.set(-0.65, 0.8, 3.5);
-      mesh4.rotation.set(8.9, 6, 0.5);
-      mesh4.scale.set(1.5, 1.5, 1.5);
-      // Add model to scene
-      scene.add(mesh4);
-    },
-    undefined,
-    function(error) {
-      console.error(error);
-    }
-  );
-
   // Add Orbit Controls
   controls = new OrbitControls(camera, renderer.domElement);
   controls.minDistance = 3;
@@ -176,44 +130,7 @@ function init() {
   scene.add(ambientLight);
 
   // Add Text under models
-  const loader5 = new FontLoader();
-  loader5.load('./assets/Playfair Display SC_Bold Italic.json', function(font) {
-    // Define font color
-    const color = 'rgb(153, 34, 14)';
-    // Define font material
-    const matDark = new THREE.LineBasicMaterial({
-      color: color,
-      side: THREE.DoubleSide
-    });
-    // Generate and place front text
-    const message = "The Birple";
-    const shapes = font.generateShapes(message, .1);
-    const geometry = new THREE.ShapeGeometry(shapes);
-    geometry.computeBoundingBox();
-    const xMid = -0.5 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
-    geometry.translate(xMid, 0, 0);
-    const text = new THREE.Mesh(geometry, matDark);
-    text.position.set(1, 0.15, 4);
-    text.rotation.set(0.5, 0, 0);
-    scene.add(text);
 
-    const color1 = 'rgb(214, 188, 60)';
-    // Define font material
-    const matDark1 = new THREE.LineBasicMaterial({
-      color: color1,
-      side: THREE.DoubleSide
-    });
-    // Generate and place behind text
-    const message1 = "The Birple";
-    const shapes1 = font.generateShapes(message1, .1);
-    const geometry1 = new THREE.ShapeGeometry(shapes1);
-    geometry1.computeBoundingBox();
-    geometry1.translate(xMid, 0, 0);
-    const text1 = new THREE.Mesh(geometry1, matDark1);
-    text1.position.set(0.996, 0.154, 3.99);
-    text1.rotation.set(0.5, 0, 0);
-    scene.add(text1);
-  });
 
 }
 

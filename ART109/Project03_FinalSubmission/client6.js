@@ -63,7 +63,7 @@ function init() {
 
   // Load preanimated model, add material, and add it to the scene
   const loader = new GLTFLoader().load(
-    "./assets/ParadisePlanet_02.glb",
+    "./assets/ParadisePlanet_04.glb",
     function(gltf) {
       gltf.scene.traverse(function(child) {
         if (child.isMesh) {

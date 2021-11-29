@@ -4,6 +4,8 @@ This is used because of the differences needed for the full screen style.*/
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Yuji+Mai&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+
 
 html,
 body {
@@ -14,7 +16,8 @@ body {
 h1 {
   /** font-style: bold;  */
   /**font-family: 'Bangers', cursive; */
-  font-family: 'Yuji Mai', serif;
+  /** font-family: 'Yuji Mai', serif; */
+  font-family: 'Berkshire Swash', cursive;
   color: #ffffff;
   text-align: center;
   padding-top: 200px;

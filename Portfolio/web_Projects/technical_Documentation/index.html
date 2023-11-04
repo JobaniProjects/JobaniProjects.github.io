@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>CSS Documentation</header>
+      <ul>
+        <li><a class ="nav-link" href="#CSS">CSS</a></li>
+        <li><a class ="nav-link" href="#Font_Styling">Font Styling</a></li>
+        <li><a class ="nav-link" href="#Rulesets">Rulesets</a></li>
+        <li><a class ="nav-link" href="#Selectors">Selectors</a></li>
+        <li><a class ="nav-link" href="#Box_Model">Box Model</a></li>
+      </ul>
+    </nav>
+    <main id="main-doc">
+      <section class="main-section" id="CSS">
+        <header>CSS</header>
+        <p>CSS, or Cascading Style Sheet, is a stylesheet language used to describe the presentation of a document written in HTML. CSS describes how elements should be rendered on screen, on paper, in speech, or on other media.</p>
+      </section>
+      <section class="main-section" id="Font_Styling">
+        <header>Font Styling</header>
+        <p>The CSS properties used to style text generally fall into two categories:</p>
+        <ul>
+          <li> <b>Font styles:</b> Properties that affect a text's font, e.g., which font gets applied, its size, and whether it's bold, italic, etc.
+          </li>
+          <li> <b>Text layout styles:</b> Properties that affect the spacing and other layout features of the text, allowing manipulation of, for example, the space between lines and letters, and how the text is aligned within the content box.
+          </li>
+        </ul>
+        <p>To set a different font for your text, you use the font-family property. This allows you to specify a font (or list of fonts) for the browser to apply to the selected elements.
+        </p>
+        <code>p{
+          font-family:Arial;
+          }
+          </code>
+          <p>This would make all paragraphs on a page adopt the arial font.</p>
+      </section>
+      <section class="main-section" id="Rulesets">
+        <header>Rulesets</header>
+        <p>Let's dissect the CSS code for red paragraph text to understand how it works:
+        </p>
+        <code>p{
+          color:red
+          }
+        </code>
+        <p>The whole structure is called a ruleset. (The term ruleset is often referred to as just rule.) Note the names of the individual parts:</p>
+        <ul>
+          <li>Selector
+            <ul><li>This is the HTML element name at the start of the ruleset. It defines the element(s) to be styled (in this example, p elements). To style a different element, change the selector.</li></ul>
+          </li>
+          <li>Declaration <ul><li>This is a single rule like <code>color: red;</code>. It specifies which of the element's properties you want to style.</li></ul>
+          </li>
+          <li>Properties
+            <ul><li>These are ways in which you can style an HTML element. (In this example, <code>color</code> is a property of the <code>p</code> elements.) In CSS, you choose which properties you want to affect in the rule.</li></ul>
+          </li>
+          <li>Property value
+            <ul><li>To the right of the property—after the colon—there is the property value. This chooses one out of many possible appearances for a given property. (For example, there are many <code>color</code> values in addition to <code>red</code>.)</li></ul>
+          </li>
+        </ul>
+        <p>Note the other important parts of the syntax:</p>
+        <ul>
+          <li>Apart from the selector, each ruleset must be wrapped in curly braces. (<code>{}</code>)</li>
+          <li>Within each declaration, you must use a colon (<code>:</code>) to separate the property from its value or values.</li>
+          <li>Within each ruleset, you must use a semicolon (<code>;</code>) to separate each declaration from the next one.</li>
+        </ul>
+      </section>
+      <section class="main-section" id="Selectors">
+        <header>Selectors</header>
+        <p>A CSS selector is the first part of a CSS Rule. It is a pattern of elements and other terms that tell the browser which HTML elements should be selected to have the CSS property values inside the rule applied to them. The element or elements which are selected by the selector are referred to as the <i>subject</i> of the <i>selector</i>.</p>
+      </section>
+      <section class="main-section" id="Box_Model">
+        <header>Box Model</header>
+        <p>Everything in CSS has a box around it, and understanding these boxes is key to being able to create more complex layouts with CSS, or to align items with other items.</p>
+        <p>In CSS we have several types of boxes that generally fit into the categories of block boxes and inline boxes. The type refers to how the box behaves in terms of page flow and in relation to other boxes on the page. Boxes have an inner display type and an outer display type.</p>
+      </section>
+    </main>
+  </body>
+</html>

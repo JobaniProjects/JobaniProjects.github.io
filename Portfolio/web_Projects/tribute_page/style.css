@@ -1,0 +1,48 @@
+*{
+    font-family:"arial";
+  }
+  body{
+    background-color:#a4db9c;
+  }
+  
+  h1, h3, #img-caption{
+    text-align:center;
+  }
+  
+  figure >img{
+    /* display:block; */
+    
+  }
+  
+  main{
+    background-color:#a4db9c;
+    margin-left:20px;
+    margin-right:20px;
+  }
+  
+  #image{
+    display:block;
+    height:auto;
+    justify-content:center;
+    margin:0 auto;
+    max-width:100%;
+    /* min-width:50px; */
+    
+  }
+  
+  ul>li{
+    margin-bottom:10px;
+    margin-left:15%;
+    margin-right:15%;
+  }
+  figure{
+    padding-left:70px;
+    padding-right:70px;
+    padding-top:10px;
+    background-color:#b6ffab;
+    
+  }
+  
+  figcaption{
+    margin-top:14px;
+  }

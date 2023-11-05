@@ -1,0 +1,45 @@
+body{
+    background-image:url(https://static.vecteezy.com/system/resources/previews/010/777/875/non_2x/seamless-candy-pattern-sweets-and-candy-background-doodle-illustration-with-sweets-and-candy-icons-free-vector.jpg);
+    font-family:Tahoma;
+    width:100%;
+    margin:0;
+    font-size: 16px;
+    color:#b27ec2;
+  }
+  h1,p{
+    text-align:center;
+    margin: 1em auto;
+  }
+  p{
+    margin-left:25%;
+    margin-right:25%;
+  }
+  
+  input,select,textarea{
+    width:100%;
+    /* min-height: 2em; */
+    background-color:#ecd0f5;
+  }
+  
+  form{
+    width:60vw;
+    min-width:300px;
+    max-width:500px;
+    margin:0 auto;
+    background-color:#fae8f3;
+  }
+  fieldset{
+    border:0;
+  }
+  
+  .inline{
+    width:unset;
+    margin: 0 0.5em 0 0;
+    vertical-align: middle;
+  }
+  
+  
+  label{
+    display:block;
+    margin-bottom:10px;
+  }

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <h1 id="title">Sweet Treats Survey Form</h1>
+    <p id="description">Thank you for visiting Sweet Treats! Please fill out this survey.</p>
+
+    <form id="survey-form">
+      <fieldset>
+        <label for="name" id="name-label">Name: <input id="name" type="text" placeholder="Enter your name" required></label>
+        <label for="email" id="email-label">Email: <input type="email" id="email" placeholder="Enter your email" required></label>
+        <label for="number" id="number-label">
+          Rate your experience (1-5):
+          <input id="number" type="number" min="1" max="5" placeholder="1=bad, 5=great" required>
+        </label>
+
+        <label>
+          What is your favorite candy?
+          <select id="dropdown">
+            <option>(select one)</option>
+            <option>Chocolates</option>
+            <option>Gummies</option>
+            <option>Hard Candy</option>
+            <option>Lollipops</option>
+          </select>
+        </label>
+
+        <label>
+          Would you recommend Sweet Treats shop to a friend?
+        </label>
+        <label>
+          <input type="radio" name="yes-no" class="inline" value="yes">Yes
+        </label>
+        <label>
+          <input type="radio" name="yes-no" class="inline" value="no">No
+        </label>
+
+        <label>
+          What candy do you want added to Sweet Treats shop?
+        </label>
+        <label>
+          <input type="checkbox" class="inline" value="licorise">Licorise
+        </label>
+        <label>
+          <input type="checkbox" class="inline" value="cotton-candy">Cotton Candy
+        </label>
+        <label>
+          <input type="checkbox" class="inline" value="twix">Twix
+        </label>
+        <label>
+          <input type="checkbox" class="inline" value="candy-corn">Candy Corn
+        </label>
+        <label>
+          <input type="checkbox" class="inline" value="jolly-ranchers">Jolly Ranchers
+        </label>
+
+        <label>Please write any comments, questions, or suggestions here:
+          <textarea placeholder="I love Sweet Treats!" cols="30" rows="4">
+          </textarea>
+        </label>
+      </fieldset>
+      
+      <input type="submit" value="submit" id="submit">
+    </form>
+    
+  </body>
+</html>

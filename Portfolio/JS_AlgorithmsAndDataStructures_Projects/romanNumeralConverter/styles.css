@@ -1,0 +1,107 @@
+:root{
+  /* Color Scheme 2 */
+  --main-color-1:#dba75b;
+  --main-color-2:#c3883d;
+  --main-color-3:#f6edce;
+  --error-background:#fa5555;
+  --error-border-text:#b31010;
+  --box-width:370px;
+  --btn-input-width:300px;
+
+  /* Color Scheme 1
+     Inspired By Ancient Roman
+     Colors
+   */
+  /* --main-color-1:#de6342;
+  --main-color-2:#3193ad;
+  --main-color-3:#FFFFF0;
+  --box-width:370px;
+  --btn-input-width:300px; */
+}
+
+body{
+  background-color:var(--main-color-1);
+}
+
+h1.title{
+  text-align:center;
+  margin-top:100px;
+  color:var(--main-color-3);
+  font-size:2.2rem;
+  font-family:"Times New Roman";
+}
+
+p.intro-text{
+  font-size:1.2rem;
+  text-align:center;
+  padding-top:10px;
+  font-weight:bold;
+  font-family:arial;
+}
+
+
+.input-1, .btn-1{
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  width:var(--btn-input-width);
+  height:35px;
+  margin-bottom:10px;
+}
+
+.input-1{
+  margin-bottom:10px;
+  font-size:1.3rem;
+  /* background-color:var(--main-color-3); */
+}
+
+.btn-1{
+  font-size:1.2rem;
+  background-color:var(--main-color-3);
+  border:1px solid var(--main-color-3);
+}
+
+div.box-1{
+  width:var(--box-width);
+  height:195px;
+  background-color:var(--main-color-2);
+  margin-right:auto;
+  margin-left:auto;
+  border:3px solid white;
+}
+
+div.box-2{
+  /* width:var(--box-width); */
+  max-width:var(--box-width);
+  max-height:65px;
+  margin-right:auto;
+  margin-left:auto;
+  margin-top:10px;
+  margin-bottom:30px;
+  text-align:center;
+  padding-top:15px;
+  padding-bottom:15px;
+  font-family:arial;
+}
+
+.hidden{
+  display:none;
+}
+
+.error{
+  color:var(--error-border-text);
+  border:3px solid var(--error-border-text);
+  background-color:var(--error-background);
+  font-size:1.7rem;
+}
+
+.no-error{
+  color:black;
+  background-color:var(--main-color-2);
+  border:3px solid white;
+  font-size:2rem;
+}
+
+button{
+  cursor:pointer;
+}

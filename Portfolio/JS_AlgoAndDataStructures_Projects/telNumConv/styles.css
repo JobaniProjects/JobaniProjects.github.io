@@ -1,0 +1,112 @@
+:root{
+  --phone-body-color:#171616;
+  --phone-screen-color:#d6d4d4;
+}
+
+body{
+  background-color:#4fb079;
+}
+
+h1{
+  width:100%;
+  max-width:480px;
+  margin-top:70px;
+  margin-left:auto;
+  margin-right:auto;
+  font-family:Verdana;
+  color:white;
+  text-align:center;
+}
+
+/* #phone{
+  background-color:red;
+  translate:0px 0px;
+} */
+
+#body{
+  /* position:relative; */
+  width:230px;
+  height:380px;
+  background-color:var(--phone-body-color);
+  margin-top:50px;
+  margin-bottom:30px;
+  margin-left:auto;
+  margin-right:auto;
+  border-radius:10px;
+}
+
+#camera{
+  /* position:relative;
+  left:10px; */
+  margin-left:auto;
+  margin-right:auto;
+  translate: 0px 73px;
+  width:15px;
+  height:15px;
+  background-color:#2e2c2c;
+  border-radius:50px;
+}
+
+#screen{
+  position:relative;
+  top:30px;
+  /* margin-top:150px; */
+  /* padding-top:100px; */
+  width:200px;
+  height:290px;
+  margin-left:auto;
+  margin-right:auto;
+  background:var(--phone-screen-color);
+}
+
+#results-div{
+  overflow-y:auto;
+  height:230px;
+  width:100%;
+  margin-top:1px;
+}
+
+.output-text{
+  text-align:center;
+  font-family:arial;
+  font-size:1.2rem;
+  padding-left:16px;
+  padding-right:16px;
+}
+
+.intro-text{
+  text-align:center;
+  margin-bottom:3px;
+  padding-top:10px;
+  font-family:arial;
+}
+
+input#user-input{
+  background-color:white;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+  border-radius:10px;
+  border:1px solid black;
+  width:170px;
+  height:22px;
+}
+
+button#check-btn, button#clear-btn{
+  position:relative;
+  top:45px;
+  width:75px;
+  height:30px;
+  font-size:1rem;
+  font-weight:600;
+  cursor:pointer;
+}
+
+button#check-btn{
+  left:30px;
+}
+
+button#clear-btn{
+  left:48px;
+}

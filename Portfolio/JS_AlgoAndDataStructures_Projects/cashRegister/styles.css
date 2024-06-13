@@ -1,0 +1,218 @@
+*{
+  margin:0;
+}
+
+:root{
+  --register-color: white;
+  --button-color-2: green;
+}
+
+body{
+  background-color:#b3ebff;
+}
+
+h1{
+  text-align:center;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+label{
+  display:block;
+  text-align:center;
+}
+
+input#cash{
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+button{
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:10px;
+  width:100px;
+  height:25px;
+  background-color:#32a84e;
+  font-size:0.86rem;
+  font-weight:bold;
+}
+button:hover{
+  cursor:pointer;
+}
+
+#cr-container{
+  width:400px;
+  height:450px;
+  /* background-color:red; */
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:100px;
+  margin-bottom:20px;
+}
+
+#change-due{
+  text-align:center;
+  margin-bottom:10px;
+}
+
+.cr-body{
+  width:320px;
+  height:300px;
+  background-color:var(--register-color);
+  position:relative;
+  top:70px;
+  left:10%;
+  border:3px solid black;
+  border-radius:10%;
+  border-bottom-right-radius:0px;
+  border-bottom-left-radius:0px;
+}
+
+.button-grid{
+  display:grid;
+  grid-template-rows: 30px 30px 30px;
+  grid-template-columns: 30px 30px 30px;
+  gap:30px 20px;
+  margin-top:60px;
+  margin-left:20px;
+  /* width:200px;
+  height:200px;
+  background-color:yellow; */
+
+}
+
+.btn-1,.btn-2,.btn-3,.btn-4,.btn-5,.btn-6,.btn-7,.btn-8,.btn-9{
+  width:30px;
+  height:30px;
+  background-color:#bfbfbf;
+  border:3px solid black;
+  border-radius:5px;
+}
+
+.btn-8{
+  background-color:orange;
+}
+
+.btn-9{
+  background-color:var(--button-color-2);
+}
+
+/* Displays the change in drawer */
+.cr-screen{
+  position:relative;
+  width:140px;
+  height:210px;
+  background-color:#bfbfbf;
+  /* grey */
+  top:-150px;
+  left:170px;
+}
+
+.cr-total-rect-1{
+  width:20px;
+  height:40px;
+  background-color:var(--register-color);
+  border:3px solid black;
+  position:relative;
+  bottom:278px;
+  left:265px;
+  z-index:-1;
+}
+
+.cr-total-rect-2{
+  width:150px;
+  height:50px;
+  background-color:var(--register-color);
+  border: 3px solid black;
+  border-radius:9px;
+  position:relative;
+  bottom:370px;
+  left:200px;
+}
+
+.cr-total-rect-3{
+  width:125px;
+  height:30px;
+  background-color:#16cef2;
+  position:relative;
+  bottom:416px;
+  left:212px;
+  border: 3px solid black;
+}
+
+.cr-total-price{
+  text-align:center;
+  margin-top:5px;
+}
+
+.line{
+  width:90px;
+  height:5px;
+  background-color:black;
+  position:relative;
+  bottom:345px;
+  left:64px;
+}
+
+.receipt{
+  width:74px;
+  height:65px;
+  background-color:white;
+  border:3px solid black;
+  border-bottom:none;
+  position:relative;
+  bottom:418px;
+  left:69px;
+}
+
+.r-line-1, .r-line-2, .r-line-3{
+  width:52px;
+  height:5px;
+  background-color:black;
+  position:relative;
+}
+
+.r-line-1{
+  top:12px;
+  left:10px;
+}
+
+.r-line-2{
+  top:24px;
+  left:10px;
+}
+
+.r-line-3{
+  top:36px;
+  left:10px;
+}
+
+.cr-body-bottom{
+  width:320px;
+  height:50px;
+  background-color:#f2eded;
+  border:3px solid black;
+  border-top:0;
+  position:relative;
+  bottom:141px;
+  left:40px;
+}
+
+.circle{
+  width:15px;
+  height:15px;
+  background-color:white;
+  border-radius:20px;
+  border:3px solid black;
+  position:relative;
+  top:15px;
+  left:150px;
+}
+
+.cid-p{
+  margin-bottom:3px;
+  margin-left:3px;
+}

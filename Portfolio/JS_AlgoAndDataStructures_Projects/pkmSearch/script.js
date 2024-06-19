@@ -29,7 +29,7 @@ const pkmSpeed = document.getElementById("speed");
 
 const fetchPokemon = async()=>{
   let url = adjustUrl();
-  console.log("URL: " ,url);
+  // console.log("URL: " ,url);
   try{
     const res = await fetch(url);
     const data = await res.json();
@@ -56,8 +56,8 @@ const displayPkmInfo = (data) =>{
   pkmHeight.innerText = `Height: ${height}`;
   pkmImg.innerHTML = `<img src="${front_default}" class="img-center" id="sprite" height="180" alt="${name}">`;
   pkmTypes.innerHTML = typesCount === 1
-  ? `<p class="type ${type1}">${type1}</p>`
-  : `<p class="type ${type1}">${type1}</p> <p class="type ${type2}">${type2}</p>`;
+  ? `<p class="type ${type1.toLowerCase()}">${type1}</p>`
+  : `<p class="type ${type1.toLowerCase()}">${type1}</p> <p class="type ${type2.toLowerCase()}">${type2}</p>`;
   statsArr.forEach((el,index)=>el.innerText = `${stats[index]["base_stat"]}`);
 };
 

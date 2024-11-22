@@ -1,27 +1,27 @@
 *{
     margin:0;
-    
+
   }
-  
+
   html{
     scroll-behavior:smooth;
   }
-  
+
   body{
     font-family: 'Poppins', sans-serif;
   }
-  
+
   :root{
     --main-color:#2c9c65;
     --highlight-color:#e0ad34;
     --background-blue:#45567d;
     --background-grey:#303841;
   }
-  
+
   h1, h2{
     font-family: 'Raleway', sans-serif;
   }
-  
+
   #navbar{
     display:flex;
     justify-content:flex-end;
@@ -30,7 +30,7 @@
     background-color:var(--main-color);
     padding:.9rem;
   }
-  
+
   #navbar a{
     text-decoration:none;
     color:white;
@@ -38,12 +38,12 @@
     font-weight:500;
     padding:1rem;
   }
-  
+
   #navbar a:hover{
     background-color:var(--highlight-color);
-    
+
   }
-  
+
   #welcome-section{
     display:flex;
     flex-direction:column;
@@ -53,59 +53,59 @@
     height:100vh;
     background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
   }
-  
+
   #welcome-section h1{
     color:white;
     font-size:2.1rem;
     margin-bottom:7px;
   }
-  
+
   #welcome-section p{
     color:white;
     font-style:italic;
     font-weight:200;
   }
-  
+
   section h1, section h2{
     text-align:center;
     align-items:center;
   }
-  
+
   ul{
     display:flex;
-    margin-right:2rem; 
+    margin-right:2rem;
   }
-  
+
   li{
     list-style:none;
     /* margin:14px; */
   }
-  
+
   .project-tile{
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));  
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     width:100%;
     grid-gap:2rem;
     max-width: 1280px;
     margin-bottom:50px;
   }
-  
+
   .project-image{
     /* height: calc(90% - 2rem); */
     height: calc(100% - 3.5rem);
     width:100%;
     object-fit:cover;
-    
+
   }
-  
+
   #projects{
     background-color:var(--background-blue);
     padding:10px 40px;
     text-align:center;
   }
-  
-  
-   #projects h2{
+
+
+   #projects h2, #resume h2{
     padding-top:80px;
     padding-bottom:1px;
     border-bottom:2px solid white;
@@ -114,20 +114,33 @@
     font-size:2.1rem;
     color:white;
   }
-  
+
   .project-tile a{
-    text-decoration:none; 
+    text-decoration:none;
   }
-  
+
   .project-title-bg{
     background-color:var(--background-grey);
   }
-  
+
   .project-tile a p{
     color:white;
     margin-top:20px;
   }
-  
+
+/* Resume Section*/
+  #resume{
+    width:100%;
+    /* height:180vh; */
+    height:900px;
+    background-color: var(--background-blue);
+    /* background-color: lightblue; */
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+
+  }
+
   #contact-info{
     width:100%;
     height:80vh;
@@ -138,14 +151,14 @@
     align-items:center;
     justify-content:center;
   }
-  
+
   #contact-info h2{
     padding-top:50px;
     font-size:4.2rem;
     font-weight:700;
-    
+
   }
-  
+
   .social-icons{
     display:flex;
     justify-content:center;
@@ -154,18 +167,18 @@
     font-size:1.3rem;
     margin-top:30px;
   }
-  
+
   .social-icons a{
     padding:1rem 2rem;
     text-decoration:none;
     color:white;
   }
-  
+
   .social-icons a:hover{
     color:var(--main-color);
-    
+
   }
-  
+
   footer{
     display:flex;
     flex-direction:row;
@@ -176,10 +189,10 @@
     background-color:var(--background-grey);
     border-top:2px solid var(--main-color);
   }
-  
+
   @media (max-width:500px){
     footer{
-      
+
       flex-direction:column;
       justify-content:center;
       align-items:center;

@@ -98,14 +98,14 @@
 
   }
 
-  #projects{
+  #projects, #certifications{
     background-color:var(--background-blue);
     padding:10px 40px;
     text-align:center;
   }
 
 
-   #projects h2, #resume h2{
+   #projects h2, #resume h2, #certifications h2{
     padding-top:80px;
     padding-bottom:1px;
     border-bottom:2px solid white;

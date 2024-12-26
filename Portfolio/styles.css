@@ -98,6 +98,26 @@
 
   }
 
+  .project-title{
+    color:white;
+    height:50px;
+    margin-top:0;
+    align-content: center;
+
+  }
+
+  .project-title a:visited{
+    color:white;
+  }
+
+  .project-title a:link{
+    color:white;
+  }
+
+  .project-title a:hover{
+    color:#adf542;
+  }
+
   #projects, #certifications{
     background-color:var(--background-blue);
     padding:10px 40px;
@@ -121,6 +141,7 @@
 
   .project-title-bg{
     background-color:var(--background-grey);
+
   }
 
   .project-tile a p{
